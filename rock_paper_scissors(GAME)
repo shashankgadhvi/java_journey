@@ -1,0 +1,48 @@
+package programs;
+import java.util.Scanner;
+import java.util.Random;
+public class rock_paper {
+    public static void main(String[] args){
+
+       String[] options = {"rock","paper","scissors"};
+       Scanner input = new Scanner(System.in);
+       Random random = new Random();
+
+       System.out.println("---WELCOME TO ROCK-PAPER-SCISSORS GAME---");
+       System.out.print("Enter your move(rock/paper/scissors): ");
+       String choice = input.nextLine();
+
+       if(!choice.equals("rock")&&
+       !choice.equals("paper")&&
+       !choice.equals("scissors")){
+        System.out.println("Invalid input, please try again.");
+       }
+
+       else{
+        // best step to learn in this code
+       String computer_choice = options[random.nextInt(3)];
+       System.out.println("Computers choice: "+computer_choice);
+
+       // tie case
+       if(choice.equals(computer_choice)){
+            System.out.println("Game tied.");
+       }
+
+       // winning cases
+       else if(choice.equals("paper") && computer_choice.equals("rock") 
+       || choice.equals("rock") && computer_choice.equals("scissors")
+       || choice.equals("scissors") && computer_choice.equals("paper"))
+       {
+            System.out.println("You win!!");
+       }
+
+       // losing cases
+       else{
+            System.out.println("You lose!!");
+       }
+
+    }
+
+       input.close();
+    }
+}
